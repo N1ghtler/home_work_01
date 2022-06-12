@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-
-import 'package:google_fonts/google_fonts.dart';
-import 'package:home_work_01/data/painting_db.dart';
-import 'package:home_work_01/model/painting.dart';
+import 'package:home_work_01/fix_list/fixlist.dart';
+import 'package:home_work_01/login/login.dart';
+import 'package:home_work_01/old/hw1.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,120 +12,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const MyHomePage(title: 'Home Page'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
-  final String title;
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  List<Card> _buildPainting() {
-    List<Painting> paintings = Paintingdb.loadPainting();
-
-    if (paintings.isEmpty) {
-      return const <Card>[];
-    }
-
-    return paintings.map((painting) {
-      String picName = painting.name;
-      String artisName = painting.artist;
-      int yearMade = painting.year;
-      return Card(
-          color: Colors.white70,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              AspectRatio(
-                aspectRatio: 18 / 10,
-                child: Image.asset(
-                  painting.assetPackage,
-                  fit: BoxFit.fitWidth,
-                ),
-              ),
-              Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.fromLTRB(16.0, 12.0, 16.0, 8.0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Text(
-                        picName,
-                        style: GoogleFonts.pacifico(
-                            textStyle: TextStyle(
-                          color: Colors.blue[400],
-                        )),
-                        maxLines: 1,
-                      ),
-                      Text(
-                        'Artis: $artisName',
-                        style: GoogleFonts.actor(
-                            textStyle: const TextStyle(
-                          color: Colors.black,
-                        )),
-                      ),
-                      Text(
-                        'Year: $yearMade',
-                        style: GoogleFonts.smooch(
-                            textStyle: const TextStyle(
-                          color: Color.fromARGB(255, 68, 16, 34),
-                        )),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ],
-          ));
-    }).toList();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        leading: const Icon(Icons.panorama_outlined),
-        title: const Center(
-          child: Text('Home Work'),
-        ),
-        actions: const [
-          Padding(
-              padding: EdgeInsets.only(right: 15),
-              child: Icon(Icons.person_pin))
-        ],
-      ),
-      // body: StaggeredGrid.count(
-      //   crossAxisCount: 2,
-      //   children: _buildPainting(),
-      // ),
-      body: GridView.count(
-        crossAxisCount: 2,
-        children: _buildPainting(),
-      ),
-
-      bottomNavigationBar: BottomAppBar(
-        color: Colors.blue,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            IconButton(icon: Icon(Icons.home), onPressed: () {}),
-            IconButton(icon: Icon(Icons.search), onPressed: () {}),
-            IconButton(icon: Icon(Icons.favorite), onPressed: () {}),
-            IconButton(icon: Icon(Icons.more_vert), onPressed: () {}),
-          ],
-        ),
-      ),
+    return const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: LoginPage(),
     );
   }
 }
