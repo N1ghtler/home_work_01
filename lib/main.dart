@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:home_work_01/Class/Pages/class_page_view.dart';
+import 'Class/Pages/class_tiktok_page.dart';
 import 'package:home_work_01/fix_list/fixlist.dart';
 import 'package:home_work_01/login/login.dart';
 import 'package:home_work_01/old/hw1.dart';
@@ -12,9 +14,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: LoginPage(),
+      home: ClassTikTok(),
     );
   }
 }
