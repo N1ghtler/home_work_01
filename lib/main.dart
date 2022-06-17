@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:home_work_01/Class/Pages/class_page_view.dart';
 import 'Class/Pages/class_tiktok_page.dart';
+import 'package:home_work_01/Class/Pages/class_page_view.dart';
 import 'package:home_work_01/fix_list/fixlist.dart';
 import 'package:home_work_01/login/login.dart';
 import 'package:home_work_01/old/hw1.dart';

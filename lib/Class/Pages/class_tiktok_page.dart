@@ -11,6 +11,8 @@ class ClassTikTok extends StatefulWidget {
 }
 
 class _ClassTikTokState extends State<ClassTikTok> {
+  bool _isfav = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -54,23 +56,77 @@ class _ClassTikTokState extends State<ClassTikTok> {
               Icons.person,
               color: Colors.white,
             )),
-        IconButton(
-            onPressed: null,
-            icon: Icon(
-              Icons.favorite,
-              color: Colors.white,
+        SizedBox(
+          height: 20,
+        ),
+        InkWell(
+            onTap: () {
+              setState(() {
+                _isfav = !_isfav;
+              });
+            },
+            child: Column(
+              children: [
+                Icon(
+                  Icons.favorite,
+                  color: _isfav ? Colors.red : Colors.white,
+                ),
+                Text(
+                  "25.4k",
+                  style: TextStyle(color: Colors.white),
+                )
+              ],
             )),
-        IconButton(
-            onPressed: null,
-            icon: Icon(
-              Icons.message,
-              color: Colors.white,
+        SizedBox(
+          height: 20,
+        ),
+        InkWell(
+            onTap: () {},
+            child: Column(
+              children: [
+                Icon(
+                  Icons.message,
+                  color: Colors.white,
+                ),
+                Text(
+                  "2.4k",
+                  style: TextStyle(color: Colors.white),
+                )
+              ],
             )),
-        IconButton(
-            onPressed: null,
-            icon: Icon(
-              Icons.person,
-              color: Colors.white,
+        SizedBox(
+          height: 20,
+        ),
+        InkWell(
+            onTap: () {},
+            child: Column(
+              children: [
+                Icon(
+                  Icons.bookmark,
+                  color: Colors.white,
+                ),
+                Text(
+                  "0.4k",
+                  style: TextStyle(color: Colors.white),
+                )
+              ],
+            )),
+        SizedBox(
+          height: 20,
+        ),
+        InkWell(
+            onTap: () {},
+            child: Column(
+              children: [
+                Icon(
+                  Icons.share_rounded,
+                  color: Colors.white,
+                ),
+                Text(
+                  "1.4k",
+                  style: TextStyle(color: Colors.white),
+                )
+              ],
             )),
       ],
     );
