@@ -16,7 +16,7 @@ class _StatePageState extends State<StatePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("None State Page"),
+        title: Text("State Page"),
         actions: [
           IconButton(
             onPressed: () {
