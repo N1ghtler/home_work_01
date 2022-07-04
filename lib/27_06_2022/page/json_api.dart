@@ -22,7 +22,7 @@ class _JsonApiPageState extends State<JsonApiPage> {
   AppBar _bulidAppBar() {
     return AppBar(
       backgroundColor: Colors.amber[800],
-      title: Text("Json Api Page"),
+      title: const Text("Json Api Page"),
     );
   }
 
@@ -52,7 +52,7 @@ class _JsonApiPageState extends State<JsonApiPage> {
 
   Widget _buildDisplay(List<PostModel>? items) {
     if (items == null) {
-      return Icon(Icons.error);
+      return const Icon(Icons.error);
     }
 
     return ListView.builder(
