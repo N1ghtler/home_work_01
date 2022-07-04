@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
-import '27_06_2022/page/json_api.dart';
+import 'package:provider/provider.dart';
+import '07_04_2022/Logic/random_user_logic.dart';
+import '07_04_2022/Pages/splash_screen_page.dart';
+//import '07_04_2022/Pages/random_users_page.dart';
+//import '27_06_2022/page/json_api.dart';
 // import 'package:home_work_01/20_06_2022/state_mod/counter_logic.dart';
-// import 'package:provider/provider.dart';
 // import 'package:home_work_01/20_06_2022/none_state_mod/none_state_mod.dart';
 // import '06_21_2022/page/muti_view_page.dart';
 // import '20_06_2022/state_mod/state_page.dart';
@@ -28,11 +31,25 @@ class MyApp extends StatelessWidget {
   //     ),
   //   );
   // }
+
+  // @override
+  // Widget build(BuildContext context) {
+  //   return MaterialApp(
+  //     debugShowCheckedModeBanner: false,
+  //     home: RandomUsersPage(),
+  //   );
+  // }
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: JsonApiPage(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => RandomUserLogic())
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: SplashScreenPage(),
+      ),
     );
   }
 }
