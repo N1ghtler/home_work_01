@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '07_04_2022/Logic/random_user_logic.dart';
 import '07_04_2022/Pages/splash_screen_page.dart';
+import '07_11_2022/logics/product_logic.dart';
 //import '07_04_2022/Pages/random_users_page.dart';
 //import '27_06_2022/page/json_api.dart';
 // import 'package:home_work_01/20_06_2022/state_mod/counter_logic.dart';
@@ -44,7 +45,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (context) => RandomUserLogic())
+        //ChangeNotifierProvider(create: (context) => RandomUserLogic()),
+        ChangeNotifierProvider(create: (context) => ProductLogic()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
