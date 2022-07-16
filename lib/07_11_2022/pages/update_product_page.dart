@@ -29,7 +29,7 @@ class _UpdateProductPageState extends State<UpdateProductPage> {
       title: Text("Update Product Page"),
       actions: [
         IconButton(
-          onPressed: () async{
+          onPressed: () async {
             if (_formKey.currentState!.validate()) {
               Product item = Product(
                 pid: widget.item.pid,
@@ -41,17 +41,15 @@ class _UpdateProductPageState extends State<UpdateProductPage> {
               );
 
               bool success = await ProductLogic.update(item);
-              if(success){
+              if (success) {
                 await context.read<ProductLogic>().read();
-                showSnackBar(context, "Item updated");
+                //showSnackBar(context, "Item updated");
                 Navigator.of(context).pop(); //go back
+              } else {
+                //showSnackBar(context, "Something went wrong while inserting");
               }
-              else{
-                showSnackBar(context, "Something went wrong while inserting");
-              }
-
             } else {
-              showSnackBar(context, "All fields are required");
+              //showSnackBar(context, "All fields are required");
             }
           },
           icon: Icon(Icons.save_alt),
@@ -158,11 +156,10 @@ class _UpdateProductPageState extends State<UpdateProductPage> {
 
   late String? _imageUrl = widget.item.image;
 
-  Widget _buildImageBox(){
-    if(_imageUrl == null){
+  Widget _buildImageBox() {
+    if (_imageUrl == null) {
       return SizedBox();
-    }
-    else{
+    } else {
       return Container(
         height: 300,
         margin: EdgeInsets.all(20),

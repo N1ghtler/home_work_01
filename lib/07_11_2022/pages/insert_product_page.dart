@@ -40,7 +40,7 @@ class _InsertProductPageState extends State<InsertProductPage> {
               bool success = await ProductLogic.insert(item);
               if (success) {
                 await context.read<ProductLogic>().read();
-                showSnackBar(context, "Item inserted");
+                //showSnackBar(context, "Item inserted");
                 _nameCtrl.clear();
                 _priceCtrl.clear();
                 _qtyCtrl.clear();
@@ -50,10 +50,10 @@ class _InsertProductPageState extends State<InsertProductPage> {
                   _imageUrl = null;
                 });
               } else {
-                showSnackBar(context, "Something went wrong while inserting");
+                //showSnackBar(context, "Something went wrong while inserting");
               }
             } else {
-              showSnackBar(context, "All fields are required");
+              //showSnackBar(context, "All fields are required");
             }
           },
           icon: Icon(Icons.save_alt),
@@ -160,11 +160,10 @@ class _InsertProductPageState extends State<InsertProductPage> {
 
   String? _imageUrl;
 
-  Widget _buildImageBox(){
-    if(_imageUrl == null){
+  Widget _buildImageBox() {
+    if (_imageUrl == null) {
       return SizedBox();
-    }
-    else{
+    } else {
       return Container(
         height: 300,
         margin: EdgeInsets.all(20),

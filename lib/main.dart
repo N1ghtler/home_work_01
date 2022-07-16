@@ -7,7 +7,7 @@ import '07_11_2022/logics/product_logic.dart';
 //import '27_06_2022/page/json_api.dart';
 // import 'package:home_work_01/20_06_2022/state_mod/counter_logic.dart';
 // import 'package:home_work_01/20_06_2022/none_state_mod/none_state_mod.dart';
-// import '06_21_2022/page/muti_view_page.dart';
+import '06_21_2022/page/muti_view_page.dart';
 // import '20_06_2022/state_mod/state_page.dart';
 // import 'Class/Pages/class_tiktok_page.dart';
 // import 'package:home_work_01/Class/Pages/class_page_view.dart';
@@ -33,25 +33,25 @@ class MyApp extends StatelessWidget {
   //   );
   // }
 
-  // @override
-  // Widget build(BuildContext context) {
-  //   return MaterialApp(
-  //     debugShowCheckedModeBanner: false,
-  //     home: RandomUsersPage(),
-  //   );
-  // }
-
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-      providers: [
-        //ChangeNotifierProvider(create: (context) => RandomUserLogic()),
-        ChangeNotifierProvider(create: (context) => ProductLogic()),
-      ],
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: SplashScreenPage(),
-      ),
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: MutiViewPage(),
     );
   }
+
+  // @override
+  // Widget build(BuildContext context) {
+  //   return MultiProvider(
+  //     providers: [
+  //       //ChangeNotifierProvider(create: (context) => RandomUserLogic()),
+  //       ChangeNotifierProvider(create: (context) => ProductLogic()),
+  //     ],
+  //     child: MaterialApp(
+  //       debugShowCheckedModeBanner: false,
+  //       home: SplashScreenPage(),
+  //     ),
+  //   );
+  // }
 }
