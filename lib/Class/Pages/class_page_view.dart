@@ -16,7 +16,7 @@ class ClassPageView extends StatelessWidget {
 
   AppBar _buildAppBar() {
     return AppBar(
-      title: Text(
+      title: const Text(
         "My PageView Page",
       ),
     );
@@ -33,7 +33,7 @@ class ClassPageView extends StatelessWidget {
     return SizedBox(
       height: 500,
       child: PageView.builder(
-        physics: BouncingScrollPhysics(),
+        physics: const BouncingScrollPhysics(),
         itemCount: movieList.length,
         itemBuilder: (context, index) {
           return _buildItem(movieList[index]);
@@ -43,11 +43,9 @@ class ClassPageView extends StatelessWidget {
   }
 
   Widget _buildItem(MovieModel item) {
-    return Container(
-      child: Image.network(
-        item.image,
-        fit: BoxFit.cover,
-      ),
+    return Image.network(
+      item.image,
+      fit: BoxFit.cover,
     );
   }
 }

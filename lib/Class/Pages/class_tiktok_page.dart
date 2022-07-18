@@ -23,7 +23,7 @@ class _ClassTikTokState extends State<ClassTikTok> {
 
   Widget _buildBody() {
     return PageView.builder(
-      physics: BouncingScrollPhysics(),
+      physics: const BouncingScrollPhysics(),
       scrollDirection: Axis.vertical,
       itemCount: movieList.length,
       itemBuilder: (context, index) {
@@ -50,13 +50,13 @@ class _ClassTikTokState extends State<ClassTikTok> {
   Widget _bulidiconright() {
     return Column(
       children: [
-        IconButton(
+        const IconButton(
             onPressed: null,
             icon: Icon(
               Icons.person,
               color: Colors.white,
             )),
-        SizedBox(
+        const SizedBox(
           height: 20,
         ),
         InkWell(
@@ -71,19 +71,19 @@ class _ClassTikTokState extends State<ClassTikTok> {
                   Icons.favorite,
                   color: _isfav ? Colors.red : Colors.white,
                 ),
-                Text(
+                const Text(
                   "25.4k",
                   style: TextStyle(color: Colors.white),
                 )
               ],
             )),
-        SizedBox(
+        const SizedBox(
           height: 20,
         ),
         InkWell(
             onTap: () {},
             child: Column(
-              children: [
+              children: const [
                 Icon(
                   Icons.message,
                   color: Colors.white,
@@ -94,13 +94,13 @@ class _ClassTikTokState extends State<ClassTikTok> {
                 )
               ],
             )),
-        SizedBox(
+        const SizedBox(
           height: 20,
         ),
         InkWell(
             onTap: () {},
             child: Column(
-              children: [
+              children: const [
                 Icon(
                   Icons.bookmark,
                   color: Colors.white,
@@ -111,13 +111,13 @@ class _ClassTikTokState extends State<ClassTikTok> {
                 )
               ],
             )),
-        SizedBox(
+        const SizedBox(
           height: 20,
         ),
         InkWell(
             onTap: () {},
             child: Column(
-              children: [
+              children: const [
                 Icon(
                   Icons.share_rounded,
                   color: Colors.white,
@@ -137,7 +137,7 @@ class _ClassTikTokState extends State<ClassTikTok> {
       color: Colors.black,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
+        children: const [
           IconButton(
               onPressed: null,
               icon: Icon(

@@ -55,11 +55,9 @@ class RandomUserLogic extends ChangeNotifier {
         }
         _status = Status.done;
       } else {
-        print("Error while reading, code: ${response.statusCode}");
         _status = Status.error;
       }
     } catch (e) {
-      print("Error while reading, ${e.toString()}");
       _status = Status.error;
     }
     notifyListeners();

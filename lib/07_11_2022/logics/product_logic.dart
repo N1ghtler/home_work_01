@@ -19,29 +19,26 @@ class ProductLogic extends ChangeNotifier {
   }
 
   Future read() async {
-    final url = readUrl;
+    const url = readUrl;
     try {
       http.Response response = await http.get(Uri.parse(url));
       if (response.statusCode == 200) {
         _productModel = await compute(getProductModel, response.body);
         _status = LocalStatus.done;
       } else {
-        print("Error while reading, code: ${response.statusCode}");
         _status = LocalStatus.error;
       }
     } catch (e) {
-      print("Error while reading, ${e.toString()}");
       _status = LocalStatus.error;
     }
     notifyListeners();
   }
 
   static Future<bool> delete(Product item) async {
-    final url = deleteUrl;
+    const url = deleteUrl;
     try {
       http.Response response = await http.post(Uri.parse(url), body: item.toJson());
       if (response.statusCode == 200) {
-        print("response.body: ${response.body}");
         if(response.body.trim() == "delete_success"){
           return true;
         }else{
@@ -49,21 +46,18 @@ class ProductLogic extends ChangeNotifier {
         }
 
       } else {
-        print("Error while deleting, code: ${response.statusCode}");
         return false;
       }
     } catch (e) {
-      print("Error while deleting, ${e.toString()}");
       return false;
     }
   }
 
   static Future<bool> insert(Product item) async {
-    final url = insertUrl;
+    const url = insertUrl;
     try {
       http.Response response = await http.post(Uri.parse(url), body: item.toJson());
       if (response.statusCode == 200) {
-        print("response.body: ${response.body}");
         if(response.body.trim() == "insert_success"){
           return true;
         }else{
@@ -71,21 +65,18 @@ class ProductLogic extends ChangeNotifier {
         }
 
       } else {
-        print("Error while inserting, code: ${response.statusCode}");
         return false;
       }
     } catch (e) {
-      print("Error while inserting, ${e.toString()}");
       return false;
     }
   }
 
   static Future<bool> update(Product item) async {
-    final url = updateUrl;
+    const url = updateUrl;
     try {
       http.Response response = await http.post(Uri.parse(url), body: item.toJson());
       if (response.statusCode == 200) {
-        print("response.body: ${response.body}");
         if(response.body.trim() == "update_success"){
           return true;
         }else{
@@ -93,11 +84,9 @@ class ProductLogic extends ChangeNotifier {
         }
 
       } else {
-        print("Error while updating, code: ${response.statusCode}");
         return false;
       }
     } catch (e) {
-      print("Error while updating, ${e.toString()}");
       return false;
     }
   }

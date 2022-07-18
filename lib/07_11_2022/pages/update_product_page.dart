@@ -26,7 +26,7 @@ class _UpdateProductPageState extends State<UpdateProductPage> {
   AppBar _buildAppBar() {
     return AppBar(
       backgroundColor: Colors.indigo,
-      title: Text("Update Product Page"),
+      title: const Text("Update Product Page"),
       actions: [
         IconButton(
           onPressed: () async {
@@ -52,7 +52,7 @@ class _UpdateProductPageState extends State<UpdateProductPage> {
               //showSnackBar(context, "All fields are required");
             }
           },
-          icon: Icon(Icons.save_alt),
+          icon: const Icon(Icons.save_alt),
         ),
       ],
     );
@@ -63,7 +63,7 @@ class _UpdateProductPageState extends State<UpdateProductPage> {
   Widget _buildBody() {
     return Container(
       alignment: Alignment.center,
-      padding: EdgeInsets.all(20),
+      padding: const EdgeInsets.all(20),
       child: Form(
         key: _formKey,
         child: ListView(
@@ -80,14 +80,14 @@ class _UpdateProductPageState extends State<UpdateProductPage> {
     );
   }
 
-  late var _nameCtrl = TextEditingController(text: widget.item.name);
-  late var _priceCtrl = TextEditingController(text: widget.item.price);
-  late var _qtyCtrl = TextEditingController(text: widget.item.qty);
-  late var _imageCtrl = TextEditingController(text: widget.item.image);
+  late final _nameCtrl = TextEditingController(text: widget.item.name);
+  late final _priceCtrl = TextEditingController(text: widget.item.price);
+  late final _qtyCtrl = TextEditingController(text: widget.item.qty);
+  late final _imageCtrl = TextEditingController(text: widget.item.image);
 
   Widget _buildNameTextField() {
     return TextFormField(
-      decoration: InputDecoration(
+      decoration: const InputDecoration(
         hintText: "Enter name",
       ),
       controller: _nameCtrl,
@@ -102,7 +102,7 @@ class _UpdateProductPageState extends State<UpdateProductPage> {
 
   Widget _buildPriceTextField() {
     return TextFormField(
-      decoration: InputDecoration(
+      decoration: const InputDecoration(
         hintText: "Enter price",
       ),
       controller: _priceCtrl,
@@ -117,7 +117,7 @@ class _UpdateProductPageState extends State<UpdateProductPage> {
 
   Widget _buildQtyTextField() {
     return TextFormField(
-      decoration: InputDecoration(
+      decoration: const InputDecoration(
         hintText: "Enter qty",
       ),
       controller: _qtyCtrl,
@@ -135,7 +135,7 @@ class _UpdateProductPageState extends State<UpdateProductPage> {
       decoration: InputDecoration(
         hintText: "Enter image url",
         suffixIcon: IconButton(
-          icon: Icon(Icons.preview),
+          icon: const Icon(Icons.preview),
           onPressed: () {
             setState(() {
               _imageUrl = _imageCtrl.text;
@@ -158,11 +158,11 @@ class _UpdateProductPageState extends State<UpdateProductPage> {
 
   Widget _buildImageBox() {
     if (_imageUrl == null) {
-      return SizedBox();
+      return const SizedBox();
     } else {
       return Container(
         height: 300,
-        margin: EdgeInsets.all(20),
+        margin: const EdgeInsets.all(20),
         child: Image.network(_imageCtrl.text.trim()),
       );
     }
@@ -172,7 +172,7 @@ class _UpdateProductPageState extends State<UpdateProductPage> {
 
   Widget _buildOutOfStockCheckbox() {
     return CheckboxListTile(
-      title: Text("Out of Stock"),
+      title: const Text("Out of Stock"),
       value: _checked,
       onChanged: (value) {
         setState(() {

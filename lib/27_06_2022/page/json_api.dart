@@ -44,7 +44,7 @@ class _JsonApiPageState extends State<JsonApiPage> {
         if (snapshot.connectionState == ConnectionState.done) {
           return _buildDisplay(snapshot.data);
         } else {
-          return CircularProgressIndicator();
+          return const CircularProgressIndicator();
         }
       },
     );
@@ -87,7 +87,7 @@ class _JsonApiPageState extends State<JsonApiPage> {
                   overflow: TextOverflow.ellipsis,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 5,
               ),
               Container(
@@ -97,7 +97,7 @@ class _JsonApiPageState extends State<JsonApiPage> {
                   overflow: TextOverflow.ellipsis,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 5,
               ),
               Container(

@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:provider/provider.dart';
@@ -17,7 +16,7 @@ class ProductPage extends StatefulWidget {
 }
 
 class _ProductPageState extends State<ProductPage> {
-  PageController _pageController = PageController();
+  final PageController _pageController = PageController();
 
   @override
   void initState() {
@@ -42,17 +41,17 @@ class _ProductPageState extends State<ProductPage> {
   AppBar _buildAppBar() {
     return AppBar(
       backgroundColor: Colors.brown,
-      title: Text("Product Page"),
+      title: const Text("Product Page"),
       actions: [
         IconButton(
           onPressed: () {
             Navigator.of(context).push(
               MaterialPageRoute(
-                builder: (context) => InsertProductPage(),
+                builder: (context) => const InsertProductPage(),
               ),
             );
           },
-          icon: Icon(Icons.add),
+          icon: const Icon(Icons.add),
         ),
       ],
     );
@@ -70,7 +69,7 @@ class _ProductPageState extends State<ProductPage> {
     switch (status) {
       case LocalStatus.none:
       case LocalStatus.loading:
-        return CircularProgressIndicator();
+        return const CircularProgressIndicator();
       case LocalStatus.error:
         return _buildError();
       case LocalStatus.done:
@@ -82,16 +81,16 @@ class _ProductPageState extends State<ProductPage> {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Icon(Icons.error, size: 30),
-        Text("No internet connection", style: TextStyle(fontSize: 20)),
-        Text("or something went wrong!", style: TextStyle(fontSize: 20)),
+        const Icon(Icons.error, size: 30),
+        const Text("No internet connection", style: TextStyle(fontSize: 20)),
+        const Text("or something went wrong!", style: TextStyle(fontSize: 20)),
         ElevatedButton.icon(
           onPressed: () async {
             context.read<ProductLogic>().setLoading();
             await context.read<ProductLogic>().read();
           },
-          icon: Icon(Icons.refresh),
-          label: Text("RETRY"),
+          icon: const Icon(Icons.refresh),
+          label: const Text("RETRY"),
         ),
       ],
     );
@@ -100,7 +99,6 @@ class _ProductPageState extends State<ProductPage> {
   Widget _buildDisplay() {
     List<Product> productList =
         context.watch<ProductLogic>().productModel.products;
-    print(productList);
 
     return RefreshIndicator(
       onRefresh: () async {
@@ -109,7 +107,7 @@ class _ProductPageState extends State<ProductPage> {
       },
       child: ListView.builder(
         controller: _pageController,
-        physics: BouncingScrollPhysics(),
+        physics: const BouncingScrollPhysics(),
         itemCount: productList.length,
         itemBuilder: (context, index) {
           return _buildItem(productList[index]);
@@ -122,7 +120,7 @@ class _ProductPageState extends State<ProductPage> {
     return Slidable(
       startActionPane: ActionPane(
         extentRatio: 1 / 4,
-        motion: DrawerMotion(),
+        motion: const DrawerMotion(),
         children: [
           SlidableAction(
             onPressed: (ctx) {},
@@ -134,7 +132,7 @@ class _ProductPageState extends State<ProductPage> {
         ],
       ),
       endActionPane: ActionPane(
-        motion: DrawerMotion(),
+        motion: const DrawerMotion(),
         children: [
           SlidableAction(
             onPressed: (ctx) {
@@ -154,9 +152,7 @@ class _ProductPageState extends State<ProductPage> {
               bool success = await ProductLogic.delete(item);
               if (success) {
                 await context.read<ProductLogic>().read();
-              } else {
-                print("Delete Failed");
-              }
+              } else {}
             },
             backgroundColor: Colors.red,
             foregroundColor: Colors.white,
@@ -168,9 +164,9 @@ class _ProductPageState extends State<ProductPage> {
       child: Card(
         child: ListTile(
           leading: Image.network(item.image),
-          title: Text("${item.name}"),
-          subtitle: Text("${item.price}"),
-          trailing: Text("${item.qty}"),
+          title: Text(item.name),
+          subtitle: Text(item.price),
+          trailing: Text(item.qty),
         ),
       ),
     );

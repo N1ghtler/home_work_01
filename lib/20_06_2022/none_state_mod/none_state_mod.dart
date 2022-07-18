@@ -15,7 +15,7 @@ class _NoneStatePageState extends State<NoneStatePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("None State Page"),
+        title: const Text("None State Page"),
         actions: [
           IconButton(
             onPressed: () {
@@ -25,7 +25,7 @@ class _NoneStatePageState extends State<NoneStatePage> {
                 ),
               );
             },
-            icon: Icon(Icons.settings),
+            icon: const Icon(Icons.settings),
           ),
         ],
       ),
@@ -52,8 +52,8 @@ class _NoneStatePageState extends State<NoneStatePage> {
                 _counter--;
               });
             },
-            child: Icon(Icons.remove)),
-        SizedBox(
+            child: const Icon(Icons.remove)),
+        const SizedBox(
           width: 10,
         ),
         GestureDetector(
@@ -62,7 +62,7 @@ class _NoneStatePageState extends State<NoneStatePage> {
                 _counter++;
               });
             },
-            child: Icon(Icons.add))
+            child: const Icon(Icons.add))
       ],
     );
   }
@@ -70,7 +70,7 @@ class _NoneStatePageState extends State<NoneStatePage> {
   Widget _dispaynumber() {
     return Text(
       "Counter: $_counter",
-      style: TextStyle(fontSize: 20),
+      style: const TextStyle(fontSize: 20),
     );
   }
 }

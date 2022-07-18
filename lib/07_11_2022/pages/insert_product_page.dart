@@ -23,7 +23,7 @@ class _InsertProductPageState extends State<InsertProductPage> {
   AppBar _buildAppBar() {
     return AppBar(
       backgroundColor: Colors.orange,
-      title: Text("Insert Product Page"),
+      title: const Text("Insert Product Page"),
       actions: [
         IconButton(
           onPressed: () async {
@@ -56,7 +56,7 @@ class _InsertProductPageState extends State<InsertProductPage> {
               //showSnackBar(context, "All fields are required");
             }
           },
-          icon: Icon(Icons.save_alt),
+          icon: const Icon(Icons.save_alt),
         ),
       ],
     );
@@ -67,7 +67,7 @@ class _InsertProductPageState extends State<InsertProductPage> {
   Widget _buildBody() {
     return Container(
       alignment: Alignment.center,
-      padding: EdgeInsets.all(20),
+      padding: const EdgeInsets.all(20),
       child: Form(
         key: _formKey,
         child: ListView(
@@ -84,14 +84,14 @@ class _InsertProductPageState extends State<InsertProductPage> {
     );
   }
 
-  var _nameCtrl = TextEditingController();
-  var _priceCtrl = TextEditingController();
-  var _qtyCtrl = TextEditingController();
-  var _imageCtrl = TextEditingController();
+  final _nameCtrl = TextEditingController();
+  final _priceCtrl = TextEditingController();
+  final _qtyCtrl = TextEditingController();
+  final _imageCtrl = TextEditingController();
 
   Widget _buildNameTextField() {
     return TextFormField(
-      decoration: InputDecoration(
+      decoration: const InputDecoration(
         hintText: "Enter name",
       ),
       controller: _nameCtrl,
@@ -106,7 +106,7 @@ class _InsertProductPageState extends State<InsertProductPage> {
 
   Widget _buildPriceTextField() {
     return TextFormField(
-      decoration: InputDecoration(
+      decoration: const InputDecoration(
         hintText: "Enter price",
       ),
       controller: _priceCtrl,
@@ -121,7 +121,7 @@ class _InsertProductPageState extends State<InsertProductPage> {
 
   Widget _buildQtyTextField() {
     return TextFormField(
-      decoration: InputDecoration(
+      decoration: const InputDecoration(
         hintText: "Enter qty",
       ),
       controller: _qtyCtrl,
@@ -139,7 +139,7 @@ class _InsertProductPageState extends State<InsertProductPage> {
       decoration: InputDecoration(
         hintText: "Enter image url",
         suffixIcon: IconButton(
-          icon: Icon(Icons.preview),
+          icon: const Icon(Icons.preview),
           onPressed: () {
             setState(() {
               _imageUrl = _imageCtrl.text;
@@ -162,11 +162,11 @@ class _InsertProductPageState extends State<InsertProductPage> {
 
   Widget _buildImageBox() {
     if (_imageUrl == null) {
-      return SizedBox();
+      return const SizedBox();
     } else {
       return Container(
         height: 300,
-        margin: EdgeInsets.all(20),
+        margin: const EdgeInsets.all(20),
         child: Image.network(_imageCtrl.text.trim()),
       );
     }
@@ -176,7 +176,7 @@ class _InsertProductPageState extends State<InsertProductPage> {
 
   Widget _buildOutOfStockCheckbox() {
     return CheckboxListTile(
-      title: Text("Out of Stock"),
+      title: const Text("Out of Stock"),
       value: _checked,
       onChanged: (value) {
         setState(() {

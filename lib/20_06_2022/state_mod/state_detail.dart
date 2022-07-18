@@ -21,7 +21,7 @@ class _StateDetailPageState extends State<StateDetailPage> {
 
   AppBar _buildAppBar() {
     return AppBar(
-      title: Text("None State Detail Page"),
+      title: const Text("None State Detail Page"),
     );
   }
 
@@ -48,15 +48,15 @@ class _StateDetailPageState extends State<StateDetailPage> {
             onTap: () {
               logic.decrease();
             },
-            child: Icon(Icons.remove)),
-        SizedBox(
+            child: const Icon(Icons.remove)),
+        const SizedBox(
           width: 10,
         ),
         GestureDetector(
             onTap: () {
               logic.increase();
             },
-            child: Icon(Icons.add))
+            child: const Icon(Icons.add))
       ],
     );
   }
@@ -65,7 +65,7 @@ class _StateDetailPageState extends State<StateDetailPage> {
     final CounterLogic logic = Provider.of<CounterLogic>(context);
     return Text(
       "Counter: ${logic.counter}",
-      style: TextStyle(fontSize: 20),
+      style: const TextStyle(fontSize: 20),
     );
   }
 }

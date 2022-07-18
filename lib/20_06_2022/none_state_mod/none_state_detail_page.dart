@@ -22,7 +22,7 @@ class _NoneStateDetailPageState extends State<NoneStateDetailPage> {
 
   AppBar _buildAppBar() {
     return AppBar(
-      title: Text("None State Detail Page"),
+      title: const Text("None State Detail Page"),
     );
   }
 
@@ -50,8 +50,8 @@ class _NoneStateDetailPageState extends State<NoneStateDetailPage> {
                 widget.counter--;
               });
             },
-            child: Icon(Icons.remove)),
-        SizedBox(
+            child: const Icon(Icons.remove)),
+        const SizedBox(
           width: 10,
         ),
         GestureDetector(
@@ -60,7 +60,7 @@ class _NoneStateDetailPageState extends State<NoneStateDetailPage> {
                 widget.counter++;
               });
             },
-            child: Icon(Icons.add))
+            child: const Icon(Icons.add))
       ],
     );
   }
@@ -68,7 +68,7 @@ class _NoneStateDetailPageState extends State<NoneStateDetailPage> {
   Widget _buildText() {
     return Text(
       "Counter: ${widget.counter}",
-      style: TextStyle(fontSize: 20),
+      style: const TextStyle(fontSize: 20),
     );
   }
 }

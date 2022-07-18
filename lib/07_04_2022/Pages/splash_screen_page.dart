@@ -14,7 +14,7 @@ class SplashScreenPage extends StatefulWidget {
 class _SplashScreenPageState extends State<SplashScreenPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: Center(
         child: Icon(
           Icons.supervised_user_circle,
@@ -27,7 +27,7 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(Duration(seconds: 1), () async {
+    Future.delayed(const Duration(seconds: 1), () async {
       await context.read<RandomUserLogic>().readbypage();
       if (mounted) {
         Navigator.of(context).pushReplacement(

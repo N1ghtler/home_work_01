@@ -7,7 +7,7 @@ class ListFixEx1 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListView(
-        children: <Widget>[
+        children: const <Widget>[
           Icon(
             Icons.camera,
             size: 200,

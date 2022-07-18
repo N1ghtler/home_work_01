@@ -45,7 +45,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       Text(
                         picName,
                         style: GoogleFonts.pacifico(
-                            textStyle: TextStyle(
+                            textStyle: const TextStyle(
                           color: Color.fromARGB(255, 21, 35, 47),
                         )),
                         maxLines: 1,
@@ -101,10 +101,10 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            IconButton(icon: Icon(Icons.home), onPressed: () {}),
-            IconButton(icon: Icon(Icons.search), onPressed: () {}),
-            IconButton(icon: Icon(Icons.favorite), onPressed: () {}),
-            IconButton(icon: Icon(Icons.more_vert), onPressed: () {}),
+            IconButton(icon: const Icon(Icons.home), onPressed: () {}),
+            IconButton(icon: const Icon(Icons.search), onPressed: () {}),
+            IconButton(icon: const Icon(Icons.favorite), onPressed: () {}),
+            IconButton(icon: const Icon(Icons.more_vert), onPressed: () {}),
           ],
         ),
       ),

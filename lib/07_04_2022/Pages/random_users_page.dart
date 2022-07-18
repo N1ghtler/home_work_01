@@ -13,7 +13,7 @@ class RandomUsersPage extends StatefulWidget {
 }
 
 class _RandomUsersPageState extends State<RandomUsersPage> {
-  PageController _pageController = PageController();
+  final PageController _pageController = PageController();
   @override
   void initState() {
     super.initState();
@@ -36,7 +36,7 @@ class _RandomUsersPageState extends State<RandomUsersPage> {
   AppBar _buildAppbar() {
     return AppBar(
       backgroundColor: Colors.pink,
-      title: Text("Random User Page"),
+      title: const Text("Random User Page"),
     );
   }
 
@@ -52,7 +52,7 @@ class _RandomUsersPageState extends State<RandomUsersPage> {
     switch (status) {
       case Status.none:
       case Status.loading:
-        return CircularProgressIndicator();
+        return const CircularProgressIndicator();
       case Status.error:
         return _buildError();
       case Status.done:
@@ -73,7 +73,7 @@ class _RandomUsersPageState extends State<RandomUsersPage> {
       },
       child: ListView.builder(
         controller: _pageController,
-        physics: BouncingScrollPhysics(),
+        physics: const BouncingScrollPhysics(),
         itemCount: resultList.length + 1,
         itemBuilder: (context, index) {
           if (index < resultList.length) {
@@ -82,7 +82,7 @@ class _RandomUsersPageState extends State<RandomUsersPage> {
             return Container(
                 height: 50,
                 alignment: Alignment.center,
-                child: Text("Loading..."));
+                child: const Text("Loading..."));
           }
         },
       ),
@@ -104,16 +104,16 @@ class _RandomUsersPageState extends State<RandomUsersPage> {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Icon(Icons.error, size: 30),
-        Text("No internet connection", style: TextStyle(fontSize: 20)),
-        Text("or something went wrong!", style: TextStyle(fontSize: 20)),
+        const Icon(Icons.error, size: 30),
+        const Text("No internet connection", style: TextStyle(fontSize: 20)),
+        const Text("or something went wrong!", style: TextStyle(fontSize: 20)),
         ElevatedButton.icon(
           onPressed: () async {
             context.read<RandomUserLogic>().setLoading();
             await context.read<RandomUserLogic>().read();
           },
-          icon: Icon(Icons.refresh),
-          label: Text("RETRY"),
+          icon: const Icon(Icons.refresh),
+          label: const Text("RETRY"),
         ),
       ],
     );

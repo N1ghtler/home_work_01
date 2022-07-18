@@ -34,7 +34,7 @@ class _LoginPageState extends State<LoginPage> {
               decoration: const InputDecoration(
                 labelText: 'Email',
               ),
-              autofillHints: [AutofillHints.email],
+              autofillHints: const [AutofillHints.email],
             ),
             // spacer
             const SizedBox(height: 12.0),

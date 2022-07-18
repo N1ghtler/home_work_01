@@ -16,17 +16,17 @@ class _StatePageState extends State<StatePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("State Page"),
+        title: const Text("State Page"),
         actions: [
           IconButton(
             onPressed: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
-                  builder: (context) => StateDetailPage(),
+                  builder: (context) => const StateDetailPage(),
                 ),
               );
             },
-            icon: Icon(Icons.settings),
+            icon: const Icon(Icons.settings),
           ),
         ],
       ),
@@ -52,15 +52,15 @@ class _StatePageState extends State<StatePage> {
             onTap: () {
               logic.decrease();
             },
-            child: Icon(Icons.remove)),
-        SizedBox(
+            child: const Icon(Icons.remove)),
+        const SizedBox(
           width: 10,
         ),
         GestureDetector(
             onTap: () {
               logic.increase();
             },
-            child: Icon(Icons.add))
+            child: const Icon(Icons.add))
       ],
     );
   }
@@ -69,7 +69,7 @@ class _StatePageState extends State<StatePage> {
     final CounterLogic logic = Provider.of<CounterLogic>(context);
     return Text(
       "Counter: ${logic.counter}",
-      style: TextStyle(fontSize: 20),
+      style: const TextStyle(fontSize: 20),
     );
   }
 }

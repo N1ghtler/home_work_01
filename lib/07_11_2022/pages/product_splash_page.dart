@@ -15,12 +15,12 @@ class _ProductSplashPageState extends State<ProductSplashPage> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(Duration(seconds: 1), () async{
+    Future.delayed(const Duration(seconds: 1), () async{
       await context.read<ProductLogic>().read();
       if(mounted){
         Navigator.of(context).pushReplacement(
           MaterialPageRoute(
-            builder: (context) => ProductPage(),
+            builder: (context) => const ProductPage(),
           ),
         );
       }
@@ -29,7 +29,7 @@ class _ProductSplashPageState extends State<ProductSplashPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: Center(
         child: Icon(Icons.shopping_cart, size: 100,),
       ),
